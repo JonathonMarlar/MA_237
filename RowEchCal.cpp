@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+const int MODULO = 2;
+
 int addMod(int a, int b, int mod);
 
 int main(int argc, char** argv)
@@ -33,7 +35,7 @@ int main(int argc, char** argv)
 					// add the i row to the j row to make it 0
 					for (int k = 0; k < 10; k++)
 					{
-						move_set[j][k] = addMod(move_set[i][k], move_set[j][k], 2);
+						move_set[j][k] = addMod(move_set[i][k], move_set[j][k], MODULO);
 					}
 				}
 			}
@@ -49,7 +51,7 @@ int main(int argc, char** argv)
 					// Once we've found it, add that row to the i row and break outta here!
 					for (int k = i; k < 10; k++)
 					{
-						move_set[i][k] = addMod(move_set[i][k], move_set[j][k], 2);
+						move_set[i][k] = addMod(move_set[i][k], move_set[j][k], MODULO);
 					}
 					break;
 				}
@@ -71,7 +73,7 @@ int main(int argc, char** argv)
 				// We add the i and j rows to zero out that column
 				for (int k = 0; k < 10; k++)
 				{
-					move_set[j][k] = addMod(move_set[i][k], move_set[j][k], 2);
+					move_set[j][k] = addMod(move_set[i][k], move_set[j][k], MODULO);
 				}
 			}
 		}
