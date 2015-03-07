@@ -6,14 +6,14 @@ int addMod(int a, int b, int mod);
 int main(int argc, char** argv)
 {
 	int move_set[9][10] = {
-		{1, 1, 0, 1, 0, 0, 0, 0, 0, 1},
-		{1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
+		{1, 1, 0, 1, 0, 0, 0, 0, 0, 0},
+		{1, 1, 1, 0, 1, 0, 0, 0, 0, 1},
 		{0, 1, 1, 0, 0, 1, 0, 0, 0, 0},
 		{1, 0, 0, 1, 1, 0, 1, 0, 0, 1},
 		{1, 0, 1, 0, 1, 0, 1, 0, 1, 0},
-		{0, 0, 1, 0, 1, 1, 0, 0, 1, 0},
-		{0, 0, 0, 1, 0, 0, 1, 1, 0, 1},
-		{0, 0, 0, 0, 1, 0, 1, 1, 1, 0},
+		{0, 0, 1, 0, 1, 1, 0, 0, 1, 1},
+		{0, 0, 0, 1, 0, 0, 1, 1, 0, 0},
+		{0, 0, 0, 0, 1, 0, 1, 1, 1, 1},
 		{0, 0, 0, 0, 0, 1, 0, 1, 1, 0}
 	};
 
@@ -52,7 +52,22 @@ int main(int argc, char** argv)
 		}
 	}
 
-	// we have to make it reduced row echelon to give the righ answer
+	// we have to make it reduced row echelon to give the right answer
+	for (int i = 8; i >= 0; i--)
+	{
+		// um...
+		for (int j = i-1; j >= 0; j--)
+		{
+			if (move_set[j][i] > 0)
+			{
+				// add rows
+				for (int k = 0; k < 10; k++)
+				{
+					move_set[j][k] = addMod(move_set[i][k], move_set[j][k], 2);
+				}
+			}
+		}
+	}
 
 	// pretty printer
 	for (int i = 0; i < 9; i++)
@@ -64,7 +79,7 @@ int main(int argc, char** argv)
 		cout << "\n";
 	}
 
-	system("PAUSE");
+	// system("PAUSE");
 	return 0;
 }
 

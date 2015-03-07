@@ -18,7 +18,7 @@ int main()
 		{ 0, 0, 0, 0, 1, 1, 0, 1, 1 }
 	};
 
-	int start_board[9] = { 1, 0, 0, 1, 0, 0, 1, 0, 0 };
+	int start_board[9] = { 0, 1, 0, 1, 0, 1, 0, 1, 0 };
 
 	int button_press = 0;
 
@@ -38,7 +38,7 @@ int main()
 		printMatrix(start_board);
 	}
 
-	system("PAUSE");
+	// system("PAUSE");
 	return 0;
 }
 
