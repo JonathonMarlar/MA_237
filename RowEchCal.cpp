@@ -49,7 +49,7 @@ int main(int argc, char** argv)
 				if (move_set[j][i] > 0)
 				{
 					// Once we've found it, add that row to the i row and break outta here!
-					for (int k = i; k < 10; k++)
+					for (int k = 0; k < 10; k++)
 					{
 						move_set[i][k] = addMod(move_set[i][k], move_set[j][k], MODULO);
 					}
