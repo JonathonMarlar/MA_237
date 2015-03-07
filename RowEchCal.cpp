@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 				if (move_set[j][i] > 0)
 				{
 					// add the i row to the j row to make it 0
-					for (int k = i; k < 10; k++)
+					for (int k = 0; k < 10; k++)
 					{
 						move_set[j][k] = addMod(move_set[i][k], move_set[j][k], 2);
 					}
